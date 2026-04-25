@@ -3,16 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV — Ludovic Detours</title>
+  <title>CV — Ludovic Ferrières · PMO Senior</title>
   <style>
     :root {
-      --accent: #2563eb;
+      --accent:       #1d4ed8;
+      --accent-dark:  #1e3a8a;
       --accent-light: #eff6ff;
-      --text: #1e293b;
-      --muted: #64748b;
-      --border: #e2e8f0;
-      --bg: #f8fafc;
-      --card: #ffffff;
+      --accent-mid:   #bfdbfe;
+      --green:        #059669;
+      --green-light:  #ecfdf5;
+      --green-mid:    #a7f3d0;
+      --amber:        #d97706;
+      --amber-light:  #fffbeb;
+      --amber-mid:    #fde68a;
+      --text:         #0f172a;
+      --muted:        #475569;
+      --border:       #e2e8f0;
+      --bg:           #f1f5f9;
+      --card:         #ffffff;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,54 +30,126 @@
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
+      font-size: 15px;
     }
 
     /* ── HEADER ─────────────────────────────────────────────── */
     header {
-      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
       color: #fff;
-      padding: 3rem 2rem 2.5rem;
-      text-align: center;
+      padding: 2.8rem 2rem 2rem;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1.8rem;
     }
 
     .avatar {
-      width: 90px;
-      height: 90px;
+      flex-shrink: 0;
+      width: 88px;
+      height: 88px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.2);
-      border: 3px solid rgba(255,255,255,0.6);
-      margin: 0 auto 1.2rem;
+      background: rgba(255,255,255,0.15);
+      border: 2.5px solid rgba(255,255,255,0.5);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.2rem;
-      font-weight: 700;
+      font-size: 1.9rem;
+      font-weight: 800;
       letter-spacing: -1px;
     }
 
-    header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; }
-    header .title { font-size: 1.1rem; opacity: 0.85; margin-top: 0.3rem; font-weight: 400; }
+    .header-text h1 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .header-text .title {
+      font-size: 1.02rem;
+      opacity: 0.8;
+      margin-top: 0.15rem;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.7rem;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      padding: 0.18rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #e0f2fe;
+    }
 
     .contacts {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.8rem 1.5rem;
-      margin-top: 1.4rem;
+      gap: 0.5rem 1.3rem;
+      margin-top: 0.9rem;
     }
 
     .contacts a, .contacts span {
-      color: rgba(255,255,255,0.9);
+      color: rgba(255,255,255,0.82);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.83rem;
       display: flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.3rem;
     }
 
     .contacts a:hover { color: #fff; text-decoration: underline; }
 
-    /* ── NAV PILLS ───────────────────────────────────────────── */
+    /* ── KPI BAND ───────────────────────────────────────────── */
+    .kpi-band {
+      background: var(--accent-dark);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .kpi-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      divide: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .kpi {
+      padding: 0.9rem 1rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .kpi:last-child { border-right: none; }
+
+    .kpi .num {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #7dd3fc;
+      line-height: 1.1;
+    }
+
+    .kpi .label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 0.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      font-weight: 600;
+    }
+
+    /* ── NAV ────────────────────────────────────────────────── */
     nav {
       position: sticky;
       top: 0;
@@ -78,20 +158,21 @@
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: center;
-      gap: 0.25rem;
-      padding: 0.6rem 1rem;
+      gap: 0.2rem;
+      padding: 0.5rem 1rem;
       overflow-x: auto;
     }
 
     nav a {
       text-decoration: none;
       color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 0.35rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 0.85rem;
       border-radius: 999px;
       white-space: nowrap;
       transition: background 0.15s, color 0.15s;
+      letter-spacing: 0.3px;
     }
 
     nav a:hover, nav a.active {
@@ -101,133 +182,264 @@
 
     /* ── LAYOUT ─────────────────────────────────────────────── */
     main {
-      max-width: 860px;
-      margin: 2rem auto;
+      max-width: 900px;
+      margin: 1.8rem auto;
       padding: 0 1rem;
       display: grid;
-      grid-template-columns: 1fr 260px;
-      gap: 1.5rem;
+      grid-template-columns: 1fr 250px;
+      gap: 1.4rem;
       align-items: start;
     }
 
-    .col-main   { display: flex; flex-direction: column; gap: 1.5rem; }
-    .col-side   { display: flex; flex-direction: column; gap: 1.5rem; }
+    .col-main { display: flex; flex-direction: column; gap: 1.4rem; }
+    .col-side  { display: flex; flex-direction: column; gap: 1.4rem; }
 
     /* ── CARD ───────────────────────────────────────────────── */
     .card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 1.4rem 1.6rem;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      padding: 1.3rem 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
 
     .card h2 {
-      font-size: 0.7rem;
-      font-weight: 700;
+      font-size: 0.68rem;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.3px;
       color: var(--accent);
       margin-bottom: 1rem;
       padding-bottom: 0.5rem;
       border-bottom: 2px solid var(--accent-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
     }
 
-    /* ── RÉSUMÉ ─────────────────────────────────────────────── */
-    .summary p {
+    /* ── PROFIL ─────────────────────────────────────────────── */
+    .profil p {
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+      line-height: 1.7;
     }
 
-    /* ── EXPÉRIENCE ─────────────────────────────────────────── */
-    .exp-item { margin-bottom: 1.3rem; }
-    .exp-item:last-child { margin-bottom: 0; }
+    .profil .highlight {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 6px 6px 0;
+      padding: 0.6rem 0.9rem;
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: var(--accent-dark);
+      font-style: italic;
+      font-weight: 500;
+    }
 
-    .exp-header {
+    /* ── TIMELINE EXPÉRIENCE ────────────────────────────────── */
+    .timeline { position: relative; padding-left: 1.4rem; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--accent-mid));
+      border-radius: 2px;
+    }
+
+    .tl-item {
+      position: relative;
+      margin-bottom: 1.4rem;
+    }
+
+    .tl-item:last-child { margin-bottom: 0; }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.15rem;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--card);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+
+    .tl-header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      gap: 0.5rem;
+      gap: 0.6rem;
+      flex-wrap: wrap;
     }
 
-    .exp-header h3 {
-      font-size: 0.97rem;
+    .tl-header h3 {
+      font-size: 0.95rem;
       font-weight: 700;
       color: var(--text);
+      line-height: 1.3;
     }
 
-    .exp-header .period {
-      font-size: 0.78rem;
+    .period {
+      flex-shrink: 0;
+      font-size: 0.74rem;
       color: var(--muted);
-      white-space: nowrap;
       background: var(--bg);
-      padding: 0.15rem 0.5rem;
+      padding: 0.15rem 0.55rem;
       border-radius: 4px;
       border: 1px solid var(--border);
-    }
-
-    .exp-company {
-      font-size: 0.84rem;
-      color: var(--accent);
+      white-space: nowrap;
       font-weight: 600;
-      margin-bottom: 0.45rem;
     }
 
-    .exp-item ul {
-      padding-left: 1.1rem;
-      font-size: 0.87rem;
+    .tl-company {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 700;
+      margin: 0.2rem 0 0.4rem;
+    }
+
+    .tl-meta {
+      font-size: 0.76rem;
       color: var(--muted);
+      margin-bottom: 0.45rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem 0.8rem;
     }
 
-    .exp-item ul li { margin-bottom: 0.25rem; }
+    .tl-meta span { display: flex; align-items: center; gap: 0.25rem; }
 
-    .exp-item + .exp-item {
-      border-top: 1px dashed var(--border);
-      padding-top: 1.2rem;
+    .tl-item ul {
+      padding-left: 1rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.6;
     }
+
+    .tl-item ul li { margin-bottom: 0.2rem; }
 
     /* ── FORMATION ──────────────────────────────────────────── */
-    .edu-item { margin-bottom: 1rem; }
+    .edu-item {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+
     .edu-item:last-child { margin-bottom: 0; }
 
+    .edu-icon {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+    }
+
     .edu-item h3 {
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       font-weight: 700;
+      line-height: 1.3;
     }
 
     .edu-item .school {
-      font-size: 0.83rem;
+      font-size: 0.8rem;
       color: var(--accent);
       font-weight: 600;
     }
 
     .edu-item .year {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--muted);
     }
 
     /* ── COMPÉTENCES ────────────────────────────────────────── */
-    .skill-group { margin-bottom: 0.9rem; }
+    .skill-group { margin-bottom: 1rem; }
     .skill-group:last-child { margin-bottom: 0; }
 
     .skill-group label {
-      font-size: 0.78rem;
-      font-weight: 600;
+      font-size: 0.74rem;
+      font-weight: 800;
       color: var(--text);
-      display: block;
-      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
 
-    .pills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .pills { display: flex; flex-wrap: wrap; gap: 0.3rem; }
 
     .pill {
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 600;
-      padding: 0.2rem 0.65rem;
+      padding: 0.18rem 0.6rem;
       border-radius: 999px;
-      border: 1px solid #bfdbfe;
+    }
+
+    .pill-blue  { background: var(--accent-light);  color: var(--accent);  border: 1px solid var(--accent-mid);  }
+    .pill-green { background: var(--green-light);   color: var(--green);   border: 1px solid var(--green-mid);   }
+    .pill-amber { background: var(--amber-light);   color: var(--amber);   border: 1px solid var(--amber-mid);   }
+
+    /* ── CERTIFICATIONS ─────────────────────────────────────── */
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.6rem 0.75rem;
+      border-radius: 8px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      margin-bottom: 0.5rem;
+    }
+
+    .cert-item:last-child { margin-bottom: 0; }
+
+    .cert-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+
+    .cert-item .cert-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .cert-item .cert-body {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── OUTILS ─────────────────────────────────────────────── */
+    .tools-group { margin-bottom: 0.8rem; }
+    .tools-group:last-child { margin-bottom: 0; }
+
+    .tools-group .tg-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
     }
 
     /* ── LANGUES ────────────────────────────────────────────── */
@@ -235,15 +447,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 0.6rem;
+      padding: 0.4rem 0;
+      border-bottom: 1px dashed var(--border);
     }
 
-    .lang-item:last-child { margin-bottom: 0; }
+    .lang-item:last-child { border-bottom: none; }
 
-    .lang-item span { font-size: 0.87rem; font-weight: 600; }
+    .lang-item .lang-name { font-size: 0.87rem; font-weight: 700; }
 
-    .lang-level {
-      font-size: 0.75rem;
+    .lang-item .lang-level {
+      font-size: 0.74rem;
       color: var(--muted);
       background: var(--bg);
       padding: 0.15rem 0.55rem;
@@ -251,41 +464,12 @@
       border: 1px solid var(--border);
     }
 
-    /* ── PROJETS ────────────────────────────────────────────── */
-    .project-item { margin-bottom: 1rem; }
-    .project-item:last-child { margin-bottom: 0; }
-
-    .project-item h3 {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .project-item p {
-      font-size: 0.83rem;
-      color: var(--muted);
-      margin-top: 0.2rem;
-    }
-
-    .project-item a {
-      font-size: 0.78rem;
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    .project-item a:hover { text-decoration: underline; }
-
-    /* ── INTÉRÊTS ───────────────────────────────────────────── */
-    .interests .pills .pill {
-      background: #f0fdf4;
-      color: #166534;
-      border-color: #bbf7d0;
-    }
-
     /* ── RESPONSIVE ─────────────────────────────────────────── */
-    @media (max-width: 700px) {
+    @media (max-width: 680px) {
       main { grid-template-columns: 1fr; }
       .col-side { order: -1; }
+      .kpi-inner { grid-template-columns: repeat(2, 1fr); }
+      .header-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
   </style>
 </head>
@@ -293,201 +477,318 @@
 
 <!-- ══ HEADER ══════════════════════════════════════════════════ -->
 <header>
-  <div class="avatar">LD</div>
-  <h1>Ludovic Detours</h1>
-  <p class="title">Développeur Full-Stack · 5 ans d'expérience</p>
-  <div class="contacts">
-    <a href="mailto:ludo@example.com">✉ ludo@example.com</a>
-    <a href="tel:+33600000000">📞 +33 6 00 00 00 00</a>
-    <span>📍 Paris, France</span>
-    <a href="https://linkedin.com/in/ludo" target="_blank">LinkedIn</a>
-    <a href="https://github.com/ludodetours37" target="_blank">GitHub</a>
+  <div class="header-inner">
+    <div class="avatar">LF</div>
+    <div class="header-text">
+      <h1>Ludovic Ferrières</h1>
+      <p class="title">Directeur de Projets &amp; PMO Senior</p>
+      <div class="badges">
+        <span class="badge">20 ans d'expérience</span>
+        <span class="badge">PMP</span>
+        <span class="badge">PRINCE2</span>
+        <span class="badge">SCRUM</span>
+        <span class="badge">Anglais Professionnel</span>
+      </div>
+      <div class="contacts">
+        <a href="mailto:ludovic.ferrieres.pro@gmail.com">✉ ludovic.ferrieres.pro@gmail.com</a>
+        <span>📍 Tours – Mobilité Paris</span>
+      </div>
+    </div>
   </div>
 </header>
 
+<!-- ══ KPI BAND ═════════════════════════════════════════════════ -->
+<div class="kpi-band">
+  <div class="kpi-inner">
+    <div class="kpi">
+      <div class="num">30 M€</div>
+      <div class="label">Budget max géré</div>
+    </div>
+    <div class="kpi">
+      <div class="num">45+</div>
+      <div class="label">Collaborateurs managés</div>
+    </div>
+    <div class="kpi">
+      <div class="num">7</div>
+      <div class="label">Pays déployés</div>
+    </div>
+    <div class="kpi">
+      <div class="num">+80 %</div>
+      <div class="label">Amélioration opérationnelle</div>
+    </div>
+  </div>
+</div>
+
 <!-- ══ NAV ═════════════════════════════════════════════════════ -->
 <nav id="nav">
-  <a href="#resume">Résumé</a>
+  <a href="#profil">Profil</a>
   <a href="#experience">Expérience</a>
-  <a href="#formation">Formation</a>
-  <a href="#projets">Projets</a>
   <a href="#competences">Compétences</a>
+  <a href="#outils">Outils</a>
+  <a href="#formation">Formation</a>
 </nav>
 
 <!-- ══ MAIN ════════════════════════════════════════════════════ -->
 <main>
 
-  <!-- COLONNE PRINCIPALE -->
+  <!-- ── COLONNE PRINCIPALE ──────────────────────────────────── -->
   <div class="col-main">
 
-    <!-- Résumé -->
-    <section class="card summary" id="resume">
-      <h2>Résumé</h2>
+    <!-- Profil -->
+    <section class="card profil" id="profil">
+      <h2>✦ Profil Professionnel</h2>
       <p>
-        Développeur Full-Stack passionné par la construction de produits robustes et scalables.
-        À l'aise aussi bien côté front (React, TypeScript) que back (Node.js, Python).
-        J'aime les environnements agiles, les code reviews et les architectures bien pensées.
-        En recherche d'un nouveau challenge sur un produit à fort impact.
+        Responsable opérationnel senior avec <strong>20 ans d'expérience</strong> en gestion de projets
+        complexes, transformation de processus et leadership multiculturel. Expert en pilotage de
+        portefeuilles multi-sites (EMEA, USA, APAC), gouvernance transverse et outils numériques.
+        Formation Génie Électrique, solide compréhension des environnements industriels et techniques.
       </p>
+      <div class="highlight">
+        Proven track record : +80 % d'amélioration opérationnelle, déploiements harmonisés sur 7 pays,
+        management de 45+ collaborateurs, budgets jusqu'à 30 M€.
+      </div>
     </section>
 
     <!-- Expérience -->
     <section class="card" id="experience">
-      <h2>Expérience</h2>
+      <h2>◈ Expériences Professionnelles</h2>
+      <div class="timeline">
 
-      <div class="exp-item">
-        <div class="exp-header">
-          <h3>Développeur Full-Stack Senior</h3>
-          <span class="period">Jan 2022 → Aujourd'hui</span>
+        <div class="tl-item">
+          <div class="tl-header">
+            <h3>Manager PMO – Directeur Département PMO &amp; Organisation</h3>
+            <span class="period">Jan. 2024 → Aujourd'hui</span>
+          </div>
+          <div class="tl-company">Capital Banking Solutions</div>
+          <div class="tl-meta">
+            <span>👥 3 PMO, 5 PM, 1 assistante</span>
+            <span>🌍 Zone EMEA – 2 sites</span>
+          </div>
+          <ul>
+            <li>Mise en place d'un référentiel commun de pilotage et reporting consolidé EMEA</li>
+            <li>Déploiement de guidelines PMO et formation PRINCE2 à toutes les équipes projet</li>
+            <li>Harmonisation des pratiques de gouvernance entre sites</li>
+            <li>Audit et optimisation de la solution PPM Sciforma : déploiement consolidé EMEA</li>
+          </ul>
         </div>
-        <div class="exp-company">Startup SaaS · Paris</div>
-        <ul>
-          <li>Refonte de l'architecture front (migration CRA → Vite + React 18)</li>
-          <li>Mise en place d'une API GraphQL avec Apollo Server et PostgreSQL</li>
-          <li>Réduction du temps de chargement de 40 % via lazy-loading et cache Redis</li>
-          <li>Onboarding et mentorat de 2 développeurs junior</li>
-        </ul>
-      </div>
 
-      <div class="exp-item">
-        <div class="exp-header">
-          <h3>Développeur Front-End</h3>
-          <span class="period">Juin 2020 → Déc 2021</span>
+        <div class="tl-item">
+          <div class="tl-header">
+            <h3>Manager Programmes Stratégiques</h3>
+            <span class="period">Jan. 2022 → Déc. 2024</span>
+          </div>
+          <div class="tl-company">CAWL – JV Crédit Agricole / Worldline</div>
+          <div class="tl-meta">
+            <span>👥 11 collab. + 5 partenaires</span>
+            <span>🌍 4 régions</span>
+          </div>
+          <ul>
+            <li>Supervision migration Oracle Cloud pour 1 700 sites Accor : France, UK, USA, Thaïlande</li>
+            <li>Harmonisation des process et outils de gestion (PMS replacement, ERP multi-modules)</li>
+            <li>Gestion du changement organisationnel et support aux équipes internes</li>
+            <li>Interface stratégique avec les directions métier et partenaires techniques</li>
+          </ul>
         </div>
-        <div class="exp-company">Agence Digitale · Lyon</div>
-        <ul>
-          <li>Développement de sites e-commerce (Next.js, Stripe, Sanity CMS)</li>
-          <li>Intégration de maquettes Figma pixel-perfect en HTML/SCSS</li>
-          <li>Automatisation des tests E2E avec Cypress</li>
-        </ul>
-      </div>
 
-      <div class="exp-item">
-        <div class="exp-header">
-          <h3>Stage Développeur Web</h3>
-          <span class="period">Fév 2020 → Mai 2020</span>
+        <div class="tl-item">
+          <div class="tl-header">
+            <h3>PMO Sénior – Transformation paneuropéenne</h3>
+            <span class="period">Jan. 2020 → Déc. 2023</span>
+          </div>
+          <div class="tl-company">Worldline – Madrid</div>
+          <div class="tl-meta">
+            <span>💶 Budget 30 M€</span>
+            <span>👥 25+ collaborateurs</span>
+            <span>🌍 FR, ES, IT, PT, USA, AU</span>
+          </div>
+          <ul>
+            <li>Refonte Target Operating Model : définition guidelines, standards et gouvernance harmonisée</li>
+            <li>Reporting bidirectionnel board / équipes opérationnelles : +50 % d'amélioration de productivité</li>
+            <li>Standardisation planification / pilotage / reporting équipes internationales, consolidation KPI</li>
+            <li>100 % atteinte des jalons critiques malgré complexité multiéquipes et multi-cas</li>
+          </ul>
         </div>
-        <div class="exp-company">PME Logistique · Nantes</div>
-        <ul>
-          <li>Développement d'un tableau de bord de suivi de livraisons (Vue.js)</li>
-          <li>Intégration d'une API REST interne</li>
-        </ul>
+
+        <div class="tl-item">
+          <div class="tl-header">
+            <h3>Directeur de Projets – Lancement produits transformationnels</h3>
+            <span class="period">Jan. 2018 → Déc. 2020</span>
+          </div>
+          <div class="tl-company">Worldline – Bruxelles</div>
+          <div class="tl-meta">
+            <span>👥 9 collaborateurs</span>
+            <span>🌍 2 pays</span>
+          </div>
+          <ul>
+            <li>Pilotage lancement Apple Pay et Google Pay : coordination équipes multiculturelles</li>
+            <li>Gestion de projet en environnement réglementé : harmonisation des approches et gouvernance</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-header">
+            <h3>CTO &amp; Directeur Département – Paylib &amp; Mes Paiements</h3>
+            <span class="period">Jan. 2015 → Déc. 2018</span>
+          </div>
+          <div class="tl-company">Worldline – Tours</div>
+          <div class="tl-meta">
+            <span>💶 Budget 15 M€</span>
+            <span>👥 45 collaborateurs</span>
+            <span>🌍 FR, Maroc, Arménie</span>
+            <span>🏦 5 banques partenaires</span>
+          </div>
+          <ul>
+            <li>Direction technique et managériale d'un département de 45 personnes sur 3 sites</li>
+            <li>Transformation agile de l'organisation et des modes de travail</li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
     <!-- Formation -->
     <section class="card" id="formation">
-      <h2>Formation</h2>
+      <h2>◈ Formation</h2>
 
       <div class="edu-item">
-        <h3>Master Informatique — Génie Logiciel</h3>
-        <div class="school">Université de Nantes</div>
-        <div class="year">2018 – 2020</div>
+        <div class="edu-icon">🎓</div>
+        <div>
+          <h3>Master 2 – Gestion de Projet &amp; Entrepreneuriat</h3>
+          <div class="school">Université de Savoie</div>
+          <div class="year">2010</div>
+        </div>
       </div>
 
       <div class="edu-item">
-        <h3>Licence Informatique</h3>
-        <div class="school">Université de Nantes</div>
-        <div class="year">2015 – 2018</div>
-      </div>
-    </section>
-
-    <!-- Projets -->
-    <section class="card" id="projets">
-      <h2>Projets Perso</h2>
-
-      <div class="project-item">
-        <h3>OpenTask — Gestionnaire de tâches open-source</h3>
-        <p>Application React + FastAPI avec authentification JWT et partage d'équipes en temps réel via WebSockets.</p>
-        <a href="https://github.com/ludodetours37" target="_blank">github.com/ludodetours37/opentask →</a>
-      </div>
-
-      <div class="project-item">
-        <h3>Meteo CLI — Outil en ligne de commande</h3>
-        <p>CLI Node.js pour afficher la météo dans le terminal avec coloration ANSI et cache local JSON.</p>
-        <a href="https://github.com/ludodetours37" target="_blank">github.com/ludodetours37/meteo-cli →</a>
+        <div class="edu-icon">⚡</div>
+        <div>
+          <h3>DUT – Génie Électrique &amp; Informatique Industrielle</h3>
+          <div class="school">IUT de Tours</div>
+          <div class="year">2000</div>
+        </div>
       </div>
     </section>
 
   </div>
 
-  <!-- COLONNE LATÉRALE -->
+  <!-- ── COLONNE LATÉRALE ─────────────────────────────────────── -->
   <div class="col-side">
+
+    <!-- Certifications -->
+    <section class="card" id="certifications">
+      <h2>✦ Certifications</h2>
+
+      <div class="cert-item">
+        <div class="cert-icon">🏅</div>
+        <div>
+          <div class="cert-name">PMP</div>
+          <div class="cert-body">PMI · renouvellement en cours</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon">🏅</div>
+        <div>
+          <div class="cert-name">PRINCE2</div>
+          <div class="cert-body">AXELOS</div>
+        </div>
+      </div>
+
+      <div class="cert-item">
+        <div class="cert-icon">🏅</div>
+        <div>
+          <div class="cert-name">SCRUM</div>
+          <div class="cert-body">Agile / Scrum Master</div>
+        </div>
+      </div>
+    </section>
 
     <!-- Compétences -->
     <section class="card" id="competences">
-      <h2>Compétences</h2>
+      <h2>◈ Compétences</h2>
 
       <div class="skill-group">
-        <label>Front-End</label>
+        <label>📊 Portefeuille &amp; PMO</label>
         <div class="pills">
-          <span class="pill">React</span>
-          <span class="pill">TypeScript</span>
-          <span class="pill">Next.js</span>
-          <span class="pill">Vue.js</span>
-          <span class="pill">Tailwind</span>
-          <span class="pill">SCSS</span>
+          <span class="pill pill-blue">Pilotage multi-projets</span>
+          <span class="pill pill-blue">Gouvernance multi-sites</span>
+          <span class="pill pill-blue">Gestion des risques</span>
+          <span class="pill pill-blue">Reporting exécutif</span>
+          <span class="pill pill-blue">KPI &amp; tableaux de bord</span>
+          <span class="pill pill-blue">Budgets jusqu'à 30 M€</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <label>Back-End</label>
+        <label>👥 Management &amp; Leadership</label>
         <div class="pills">
-          <span class="pill">Node.js</span>
-          <span class="pill">Python</span>
-          <span class="pill">FastAPI</span>
-          <span class="pill">GraphQL</span>
-          <span class="pill">REST</span>
+          <span class="pill pill-green">Équipes 5 → 45</span>
+          <span class="pill pill-green">Environnements matriciels</span>
+          <span class="pill pill-green">Leadership transverse</span>
+          <span class="pill pill-green">Gestion du changement</span>
         </div>
       </div>
 
       <div class="skill-group">
-        <label>Bases de données</label>
+        <label>⚙️ Transformation &amp; Processus</label>
         <div class="pills">
-          <span class="pill">PostgreSQL</span>
-          <span class="pill">MongoDB</span>
-          <span class="pill">Redis</span>
+          <span class="pill pill-amber">Refonte TOM</span>
+          <span class="pill pill-amber">Standardisation</span>
+          <span class="pill pill-amber">Déploiement PPM</span>
+          <span class="pill pill-amber">Amélioration continue</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outils -->
+    <section class="card" id="outils">
+      <h2>◈ Outils</h2>
+
+      <div class="tools-group">
+        <div class="tg-label">PPM</div>
+        <div class="pills">
+          <span class="pill pill-blue">Sciforma</span>
+          <span class="pill pill-blue">Planview</span>
+          <span class="pill pill-blue">MS Project</span>
         </div>
       </div>
 
-      <div class="skill-group">
-        <label>DevOps & Outils</label>
+      <div class="tools-group">
+        <div class="tg-label">Collaboration</div>
         <div class="pills">
-          <span class="pill">Docker</span>
-          <span class="pill">GitHub Actions</span>
-          <span class="pill">Vercel</span>
-          <span class="pill">Linux</span>
-          <span class="pill">Figma</span>
+          <span class="pill pill-green">Jira</span>
+          <span class="pill pill-green">Confluence</span>
+          <span class="pill pill-green">Trello</span>
+        </div>
+      </div>
+
+      <div class="tools-group">
+        <div class="tg-label">BI &amp; Reporting</div>
+        <div class="pills">
+          <span class="pill pill-amber">PowerBI</span>
+          <span class="pill pill-amber">Excel avancé</span>
+        </div>
+      </div>
+
+      <div class="tools-group">
+        <div class="tg-label">ERP</div>
+        <div class="pills">
+          <span class="pill pill-blue">Oracle Cloud</span>
+          <span class="pill pill-blue">SAP</span>
         </div>
       </div>
     </section>
 
     <!-- Langues -->
     <section class="card">
-      <h2>Langues</h2>
+      <h2>◈ Langues</h2>
       <div class="lang-item">
-        <span>Français</span>
+        <span class="lang-name">🇫🇷 Français</span>
         <span class="lang-level">Langue maternelle</span>
       </div>
       <div class="lang-item">
-        <span>Anglais</span>
-        <span class="lang-level">Courant (C1)</span>
-      </div>
-      <div class="lang-item">
-        <span>Espagnol</span>
-        <span class="lang-level">Intermédiaire (B1)</span>
-      </div>
-    </section>
-
-    <!-- Intérêts -->
-    <section class="card interests">
-      <h2>Centres d'intérêt</h2>
-      <div class="pills">
-        <span class="pill">Open-source</span>
-        <span class="pill">Trail running</span>
-        <span class="pill">Photographie</span>
-        <span class="pill">Voyages</span>
-        <span class="pill">Cuisine</span>
+        <span class="lang-name">🇬🇧 Anglais</span>
+        <span class="lang-level">Professionnel</span>
       </div>
     </section>
 
@@ -496,21 +797,20 @@
 </main>
 
 <script>
-  // Active nav pill on scroll
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav a');
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
         navLinks.forEach(a => a.classList.remove('active'));
-        const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+        const link = document.querySelector(`nav a[href="#${e.target.id}"]`);
         if (link) link.classList.add('active');
       }
     });
-  }, { rootMargin: '-40% 0px -55% 0px' });
+  }, { rootMargin: '-35% 0px -55% 0px' });
 
-  sections.forEach(s => observer.observe(s));
+  sections.forEach(s => io.observe(s));
 </script>
 
 </body>
